@@ -1,0 +1,72 @@
+package org.example;
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int i=1;
+        WorkList workList = new WorkList();
+        while (i!=0){
+            System.out.println("Выберите операцию:");
+            System.out.println("0. Выход из программы");
+            System.out.println("1. Добавить дело");
+            System.out.println("2. Показать дела");
+            System.out.println("3. Удалить дело по номеру");
+            System.out.println("4. Удалить дело по названию");
+            System.out.print("Ваш выбор: ");
+
+             i = sc.nextInt();
+             sc.nextLine();
+             System.out.println("Ваш выбор: " + i);
+
+
+            if (i == 1) {
+                System.out.println("Введите название задачи: ");
+                String next= sc.nextLine();
+                System.out.println(workList.addWork(next) ? "Дело добавлено" : "Дело уже есть в списке");
+                workList.showWork();
+            }
+            if (i == 2) {
+                workList.showWork();
+            }
+            if (i == 3) {
+                System.out.println("Введите номер для удаления: ");
+                System.out.println(workList.deleteWorkIndex(sc.nextInt()) ? "Удалено!" : "Дело не найдено");
+                workList.showWork();
+            }
+            if (i == 4) {
+                System.out.println("Введите задачу для удаления: ");
+                String next= sc.nextLine();
+                System.out.println(workList.deleteWorkName(next) ? "Удалено!":"Дело не найдено");
+                workList.showWork();
+            }
+        }
+
+
+        }
+    }
+
+//
+//
+//        Реализуйте программу, которая помогает пользователю управлять списком дел. Дела можно считать уникальными, т. е. без повторов.
+//
+//Должны быть операции:
+//
+//добавления нового дела в список;
+//вывода всех дел с нумерацией;
+//удаления дела по его номеру. Если нет дела с таким номером, об этом нужно написать пользователю;
+//удаления дела по его точному тексту. Если нет дела текст которого совпадает с искомым текстом, об этом нужно написать пользователю;
+//выход из программы.
+//Пользователю на повторе должно предлагаться меню с операциями на выбор.
+//После каждой операции должен выводиться пронумерованный список всех дел.
+
+
+//        Выберите операцию:
+//        0. Выход из программы
+//1. Добавить дело
+//2. Показать дела
+//3. Удалить дело по номеру
+//4. Удалить дело по названию
+//        Ваш выбор: 1
