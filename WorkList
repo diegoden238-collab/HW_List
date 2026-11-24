@@ -1,0 +1,44 @@
+package org.example;
+import java.util.ArrayList;
+import java.util.Optional;
+
+public class WorkList {
+
+    protected ArrayList<String> workList = new ArrayList<>();
+
+    public boolean addWork(String work) {
+        if (workList.contains(work))
+            return false;
+        else
+        return workList.add(work);
+    }
+
+    public void showWork() {
+        System.out.println("Your work list:");
+        for (int i = 0; i < workList.size(); i++) {
+            System.out.println(i+1 + ": " + workList.get(i));
+        }
+    }
+
+
+    public boolean deleteWorkIndex(int i) {
+        if (i < 0 || i >= workList.size()) {
+        return false;
+        } else {
+            if (workList.remove(i-1) != null) {
+                return true;
+            }
+            else {return false;
+        }
+    }
+    }
+
+    public boolean deleteWorkName(String next) {
+        if (workList.indexOf(next) != -1) {
+            workList.remove(workList.indexOf(next));
+            return true;
+        }
+        else return false;
+    }
+}
+
